@@ -11,11 +11,13 @@
 ## Featured Repositories
 
 <!-- REPO-LIST:START -->
-| Repository | Focus & Doctrine | Domain |
+
+| Repository | Description / Focus | Primary Domain |
 | :--- | :--- | :--- |
-| [samavi-calendar](https://github.com/1866universe/samavi-calendar) | Astronomical research model and bilingual documentation | Calendrical Science |
-| [lingodirect-config](https://github.com/1866universe/lingodirect-config) | Live bilingual translation and contextual communication infrastructure | Human–Computer Interaction |
-| [ebook-Word-by-Word.Positional.Sequential.Mapping](https://github.com/1866universe/ebook-Word-by-Word.Positional.Sequential.Mapping) | Examining and analyzing linguistic structures through Positional–Sequential Mapping | Linguistics |
+| [lingodirect-config](https://github.com/1866universe/lingodirect-config) | Core research & infrastructure | Python |
+| [samavi-calendar](https://github.com/1866universe/samavi-calendar) | Samavi Calendar — Astronomical research model and bilingual documentation. | HTML |
+| [ebook-Word-by-Word.Positional.Sequential.Mapping](https://github.com/1866universe/ebook-Word-by-Word.Positional.Sequential.Mapping) | Examining and analyzing linguistic structures through Word-by-Word Positional–Sequential Mapping | HTML |
+
 <!-- REPO-LIST:END -->
 
 ---
