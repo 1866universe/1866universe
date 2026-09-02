@@ -2,6 +2,12 @@
   <img src="Background-Banner-1866universe.png" alt="1866universe Banner" width="100%">
 </div>
 
+<div align="center">
+
+**English** • [فارسی](README_FA.md)
+
+</div>
+
 # 1866universe
 
 > A boundless, multidisciplinary essence — synthesizing knowledge across linguistics, calendrical science, and human–computer interaction. Belonging to no one. Belonging to all humanity.
@@ -15,15 +21,16 @@
 | Repository | Description / Focus | Primary Domain |
 | :--- | :--- | :--- |
 | [lingodirect-config](https://github.com/1866universe/lingodirect-config) | Configuration schemas, runtime specifications, and orchestration protocols for the LingoDirect translation engine. | Computational-Linguistics |
-| [samavi-calendar](https://github.com/1866universe/samavi-calendar) |   An astronomical research calendar model based on lunar angular cycles and 232,849 celestial data points across 693 astronomical years (1950–2610). | Astronomy |
+| [samavi-calendar](https://github.com/1866universe/samavi-calendar) | An astronomical research calendar model based on lunar angular cycles and 232,849 celestial data points across 693 astronomical years (1950–2610). | Astronomy |
 | [ebook-Word-by-Word.Positional.Sequential.Mapping](https://github.com/1866universe/ebook-Word-by-Word.Positional.Sequential.Mapping) | A structural framework for Word-by-Word Positional–Sequential Mapping, facilitating precise cross-lingual semantic alignment and linguistic analysis. | Cross-Lingual |
 
 <!-- REPO-LIST:END -->
 
 ---
 
-## Contact & Network
+## Research Portal & Network
 
+* **Interactive Research Portal:** [1866universe on Notion](https://rounded-position-bbf.notion.site/1866universe-3d27e46ad8778087b894d1d18834bb46?source=copy_link)
 * **Official Inquiries:** `admin@1866universe.ir`
 
 <br>
