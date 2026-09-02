@@ -1,0 +1,34 @@
+name: Sync Repositories to Notion
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Runs daily at 00:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Run Notion Sync Script
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: '3cf7e46a-d877-8038-bbad-eb12d53ad9a1'
+          GITHUB_ACTOR: ${{ github.repository_owner }}
+        run: |
+          python scripts/sync_notion.py
