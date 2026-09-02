@@ -14,6 +14,7 @@
 
 | Repository | Description / Focus | Primary Domain |
 | :--- | :--- | :--- |
+| [quantum-linguistics-engine](https://github.com/1866universe/quantum-linguistics-engine) | Experimental model for semantic tokenization | Multidisciplinary |
 | [lingodirect-config](https://github.com/1866universe/lingodirect-config) | Core research & infrastructure | Python |
 | [samavi-calendar](https://github.com/1866universe/samavi-calendar) | Samavi Calendar — Astronomical research model and bilingual documentation. | HTML |
 | [ebook-Word-by-Word.Positional.Sequential.Mapping](https://github.com/1866universe/ebook-Word-by-Word.Positional.Sequential.Mapping) | Examining and analyzing linguistic structures through Word-by-Word Positional–Sequential Mapping | HTML |
