@@ -1,0 +1,132 @@
+name: Update Centralized Feed
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  build-feed:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate RSS Feed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - << 'EOF'
+          import urllib.request
+          import json
+          import os
+          from xml.sax.saxutils import escape
+          from datetime import datetime, timezone
+          from email.utils import format_datetime
+
+          token = os.environ.get("GH_TOKEN")
+          headers = {
+              "Accept": "application/vnd.github+json",
+              "User-Agent": "1866universe-Feed-Bot"
+          }
+          if token:
+              headers["Authorization"] = f"Bearer {token}"
+
+          def parse_date(d):
+              if not d:
+                  return datetime.min.replace(tzinfo=timezone.utc)
+              return datetime.fromisoformat(d.replace("Z", "+00:00"))
+
+          def rfc822(d):
+              return format_datetime(parse_date(d))
+
+          org_repos_url = "https://api.github.com/users/1866universe/repos?per_page=100&sort=pushed"
+          req = urllib.request.Request(org_repos_url, headers=headers)
+          try:
+              with urllib.request.urlopen(req) as resp:
+                  repos = json.loads(resp.read().decode("utf-8"))
+          except Exception as e:
+              print(f"Error fetching repos: {e}")
+              repos = []
+
+          items = []
+          for r in repos:
+              if r.get("fork") or r.get("private"):
+                  continue
+              r_name = r.get("name")
+              r_desc = r.get("description") or "No description provided."
+              r_url = r.get("html_url")
+              pushed_at = r.get("pushed_at")
+
+              items.append({
+                  "title": f"Project: {r_name}",
+                  "link": r_url,
+                  "desc": f"Repository: {escape(r_name)}<br/>Description: {escape(r_desc)}",
+                  "date": pushed_at
+              })
+
+              rel_url = f"https://api.github.com/repos/1866universe/{r_name}/releases?per_page=5"
+              rel_req = urllib.request.Request(rel_url, headers=headers)
+              try:
+                  with urllib.request.urlopen(rel_req) as rel_resp:
+                      releases = json.loads(rel_resp.read().decode("utf-8"))
+                      for rel in releases:
+                          tag = rel.get("tag_name") or rel.get("name")
+                          rel_html = rel.get("html_url")
+                          rel_body = rel.get("body") or "No release notes."
+                          # Markdown bullet lines -> readable HTML line breaks
+                          rel_html_body = "<br/>".join(escape(line) for line in rel_body.splitlines())
+                          pub_at = rel.get("published_at") or pushed_at
+                          items.append({
+                              "title": f"Release: {r_name} {tag}",
+                              "link": rel_html,
+                              "desc": f"New Release for {escape(r_name)} ({escape(tag)})<br/><br/>{rel_html_body}",
+                              "date": pub_at
+                          })
+              except Exception:
+                  pass
+
+          items.sort(key=lambda x: parse_date(x["date"]), reverse=True)
+
+          now_rfc822 = format_datetime(datetime.now(timezone.utc))
+          xml_out = ['<?xml version="1.0" encoding="UTF-8"?>']
+          xml_out.append('<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">')
+          xml_out.append('  <channel>')
+          xml_out.append('    <title>1866universe — Centralized Ecosystem Feed</title>')
+          xml_out.append('    <link>https://1866universe.github.io/1866universe/</link>')
+          xml_out.append('    <description>Unified activity and release feed across all 1866universe repositories.</description>')
+          xml_out.append('    <language>en</language>')
+          xml_out.append(f'    <lastBuildDate>{now_rfc822}</lastBuildDate>')
+          xml_out.append('    <atom:link href="https://raw.githubusercontent.com/1866universe/1866universe/main/feed.xml" rel="self" type="application/rss+xml" />')
+
+          for it in items[:50]:
+              xml_out.append('    <item>')
+              xml_out.append(f'      <title>{escape(it["title"])}</title>')
+              xml_out.append(f'      <link>{escape(it["link"])}</link>')
+              xml_out.append(f'      <guid isPermaLink="true">{escape(it["link"])}</guid>')
+              xml_out.append(f'      <pubDate>{rfc822(it["date"])}</pubDate>')
+              xml_out.append(f'      <description>{it["desc"]}</description>')
+              xml_out.append('    </item>')
+
+          xml_out.append('  </channel>')
+          xml_out.append('</rss>')
+
+          with open("feed.xml", "w", encoding="utf-8") as f:
+              f.write("\n".join(xml_out))
+          print(f"feed.xml generated successfully with {min(len(items), 50)} items!")
+          EOF
+
+      - name: Commit and Push feed.xml
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add feed.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update centralized feed.xml [skip ci]" && git push)
