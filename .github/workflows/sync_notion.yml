@@ -28,7 +28,7 @@ jobs:
       - name: Run Notion Sync Script
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: '3cf7e46a-d877-8038-bbad-eb12d53ad9a1'
+          NOTION_DATABASE_ID: '3f6bd65adc2c80c79d82d6dd77d836e6'
           GITHUB_ACTOR: ${{ github.repository_owner }}
         run: |
           python scripts/sync_notion.py
