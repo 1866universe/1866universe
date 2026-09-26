@@ -5,20 +5,20 @@
     <link>https://1866universe.github.io/1866universe/</link>
     <description>Unified activity and release feed across all 1866universe repositories.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 26 Sep 2026 05:12:22 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2026 09:59:01 +0000</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/1866universe/1866universe/main/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Project: lingodirect-config</title>
       <link>https://github.com/1866universe/lingodirect-config</link>
       <guid isPermaLink="true">https://github.com/1866universe/lingodirect-config</guid>
-      <pubDate>Sat, 26 Sep 2026 05:00:44 +0000</pubDate>
+      <pubDate>Sat, 26 Sep 2026 09:41:01 +0000</pubDate>
       <description>Repository: lingodirect-config<br/>Description: Configuration schemas, runtime specifications, and orchestration protocols for the LingoDirect translation engine.</description>
     </item>
     <item>
       <title>Project: 1866universe</title>
       <link>https://github.com/1866universe/1866universe</link>
       <guid isPermaLink="true">https://github.com/1866universe/1866universe</guid>
-      <pubDate>Sat, 26 Sep 2026 00:14:33 +0000</pubDate>
+      <pubDate>Sat, 26 Sep 2026 05:12:23 +0000</pubDate>
       <description>Repository: 1866universe<br/>Description: No description provided.</description>
     </item>
     <item>
@@ -26,7 +26,7 @@
       <link>https://github.com/1866universe/samavi-calendar</link>
       <guid isPermaLink="true">https://github.com/1866universe/samavi-calendar</guid>
       <pubDate>Fri, 25 Sep 2026 05:06:58 +0000</pubDate>
-      <description>Repository: samavi-calendar<br/>Description:   An astronomical research calendar model based on lunar angular cycles and 232,849 celestial data points across 693 astronomical years (1950–2610).</description>
+      <description>Repository: samavi-calendar<br/>Description:   An astronomical research calendar model based on lunar angular cycles and 232,887 celestial data points across 693 astronomical years (1550–2210).</description>
     </item>
     <item>
       <title>Project: ebook-Word-by-Word.Positional.Sequential.Mapping</title>
