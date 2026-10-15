@@ -5,14 +5,21 @@
     <link>https://1866universe.github.io/1866universe/</link>
     <description>Unified activity and release feed across all 1866universe repositories.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 15 Oct 2026 01:04:02 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 06:01:21 +0000</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/1866universe/1866universe/main/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Project: 1866universe</title>
       <link>https://github.com/1866universe/1866universe</link>
       <guid isPermaLink="true">https://github.com/1866universe/1866universe</guid>
-      <pubDate>Wed, 14 Oct 2026 22:48:37 +0000</pubDate>
+      <pubDate>Thu, 15 Oct 2026 02:14:41 +0000</pubDate>
       <description>Repository: 1866universe<br/>Description: No description provided.</description>
+    </item>
+    <item>
+      <title>Project: samavi-calendar</title>
+      <link>https://github.com/1866universe/samavi-calendar</link>
+      <guid isPermaLink="true">https://github.com/1866universe/samavi-calendar</guid>
+      <pubDate>Thu, 15 Oct 2026 01:57:19 +0000</pubDate>
+      <description>Repository: samavi-calendar<br/>Description:   An astronomical research calendar model based on lunar angular cycles and 232,887 celestial data points across 693 astronomical years (1550–2210).</description>
     </item>
     <item>
       <title>Project: lingodirect-config</title>
@@ -27,13 +34,6 @@
       <guid isPermaLink="true">https://github.com/1866universe/1866universe.github.io</guid>
       <pubDate>Mon, 12 Oct 2026 07:16:01 +0000</pubDate>
       <description>Repository: 1866universe.github.io<br/>Description: No description provided.</description>
-    </item>
-    <item>
-      <title>Project: samavi-calendar</title>
-      <link>https://github.com/1866universe/samavi-calendar</link>
-      <guid isPermaLink="true">https://github.com/1866universe/samavi-calendar</guid>
-      <pubDate>Sun, 27 Sep 2026 02:42:17 +0000</pubDate>
-      <description>Repository: samavi-calendar<br/>Description:   An astronomical research calendar model based on lunar angular cycles and 232,887 celestial data points across 693 astronomical years (1550–2210).</description>
     </item>
     <item>
       <title>Project: ebook-Word-by-Word.Positional.Sequential.Mapping</title>
